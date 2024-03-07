@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      input:focus {
+        outline-width: 0;
+      }
+
+      @media screen and (min-width: 1280px) and (max-width: 1474px) {
+        .triCard {
+          margin-left: 20px;
+        }
+        .bg-boost {
+          width: 100%;
+        }
+      }
+      @media screen and (min-width: 1024px) and (max-width: 1279px) {
+        .triCard {
+          margin-left: 20px;
+        }
+      }
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        .triCard {
+          width: 100%;
+        }
+        .triCard h5 {
+          font-size: 20px;
+        }
+      }
+      @media screen and (min-width: 136px) and (max-width: 390px) {
+        .triCard {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- navbar -->
+    <nav class="bg-white border-gray-200">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="https://flowbite.com/"
+          class="flex items-center space-x-3 rtl:space-x-reverse block md:hidden"
+        >
+          <img src="/images/logo.svg" class="h-8" alt="Shortly Logo" />
+        </a>
+
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+
+        <div
+          class="hidden w-full md:block md:w-auto md:mb-1"
+          id="navbar-default"
+        >
+          <ul
+            class="border-8 font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white md:mr-auto"
+          >
+            <li>
+              <a
+                href="https://flowbite.com/"
+                class="flex items-center space-x-3 rtl:space-x-reverse mt-3 hidden md:block"
+              >
+                <img src="/images/logo.svg" class="h-8" alt="Shortly Logo" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-[#9e9aa7] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#2acfcf] md:mt-2"
+                aria-current="page"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-[#9e9aa7] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#2acfcf] md:mt-2"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 text-[#9e9aa7] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#2acfcf] md:mt-2"
+                >Resources</a
+              >
+            </li>
+          </ul>
+          <ul
+            class="block border-8 font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:hidden md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-3 text-[#9e9aa7] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#2acfcf] md:p-0"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white bg-[#2acfcf] hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2 text-center"
+                >Sign Up</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="border-8 font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-3 px-3 text-[#9e9aa7] rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#2acfcf] md:p-0"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white bg-[#2acfcf] hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2 text-center"
+                >Sign Up</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- banner -->
+    <div id="app">
+      <div class="bg-white pb-32 md:pb-20">
+        <div class="container mx-auto py-5 px-5 relative md:py-10 xl:px-32">
+          <!-- awal tampilan -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 justify-between content-center"
+          >
+            <div class="pt-16 text-center md:text-start md:w-3/4">
+              <p class="text-5xl md:text-6xl font-bold tracking-[0.1rem]">
+                More than just shorter links
+              </p>
+              <p
+                class="text-gray-500 mt-4 text-md tracking-[0.1rem] px-5 md:px-0 md:mt-2"
+              >
+                Build your brand's recognition and get detailed insights on how
+                your links are performing
+              </p>
+              <button
+                class="mt-5 py-3 px-7 text-white bg-[#2acfcf] hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2 text-center"
+              >
+                Get Started
+              </button>
+            </div>
+            <div class="order-first md:order-last">
+              <img src="/images/illustration-working.svg" alt="" class="" />
+            </div>
+          </div>
+
+          <!-- input link -->
+          <div
+            class="container bg-[#35323e] rounded-xl h-40 absolute w-11/12 bottom-[-40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:w-full xl:w-10/12 md:h-32"
+          >
+            <img
+              class="w-full h-full rounded-xl hidden md:block"
+              src="/images/bg-boost-desktop.svg"
+              alt=""
+            />
+
+            <img
+              class="w-full h-full rounded-xl block md:hidden"
+              src="/images/bg-boost-mobile.svg"
+              alt=""
+            />
+            <div
+              class="flex flex-wrap absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full"
+            >
+              <div class="w-full px-10 md:w-10/12 md:pl-10">
+                <input
+                  type="text"
+                  name="linkInput"
+                  :class="[
+                  'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5',
+                  {'border-amber-600' : linkError}
+                  ]"
+                  placeholder="Shorten a link here..."
+                  v-model="newItem.originalUrl"
+                />
+                <label
+                  for="linkInput"
+                  class="text-red-500 text-xs italic block md:hidden"
+                  v-if="linkError"
+                  >Please add a link</label
+                >
+              </div>
+              <div class="w-full px-10 mt-4 md:w-2/12 md:pl-5 md:mt-0 md:px-0">
+                <button
+                  class="text-white bg-[#2acfcf] rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm h-10 w-full md:h-full md:w-[80%] text-center"
+                  @click="shortenURL"
+                  v-if="!disableButton"
+                >
+                  Shorten It!
+                </button>
+                <button
+                  disabled
+                  class="text-white bg-red-500 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm h-10 w-full md:h-full md:w-[80%] text-center cursor-not-allowed"
+                  v-else
+                >
+                  Shorten It!
+                </button>
+              </div>
+              <div class="w-full px-10 md:w-10/12">
+                <label
+                  for="linkInput"
+                  class="text-red-500 text-xs italic hidden md:block"
+                  v-if="linkError"
+                  >Please add a link</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- menampilkan short link -->
+      <div class="container mx-auto w-11/12 sm:w-full lg:w-9/12 mt-24">
+        <div class="" v-if="newItem.shortUrl">
+          <div class="relative mt-4" v-for="(item, index) in items">
+            <div class="bg-white py-2 w-full mx-auto rounded-md shadow-lg">
+              <div class="grid grid-cols-1 md:grid-cols-12 md:justify-between">
+                <div class="px-5 md:px-0 md:col-span-7 py-2 md:pl-6">
+                  <!-- https://www.frontendmentor.io -->
+                  {{ item.originalUrl }}
+                </div>
+                <hr class="block md:hidden" />
+                <div
+                  class="px-5 md:px-0 md:col-span-4 md:justify-self-end py-2 md:px-3 text-[#2acfcf]"
+                >
+                  <!-- https://reLink/k4lKyk -->
+                  <a :href="item.shortUrl" target="_blank"
+                    >{{ item.shortUrl }}</a
+                  >
+                </div>
+                <div class="px-3 py-2 md:pl-3 md:py-1">
+                  <button
+                    class="text-white bg-[#2acfcf] rounded-md hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-xs h-10 w-full md:h-full md:w-[70%] text-center"
+                    @click="copyLink(index)"
+                    v-if="!item.copied"
+                  >
+                    Copy
+                  </button>
+                  <button
+                    class="text-white bg-[#35323e] rounded-md hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-xs h-10 w-full md:h-full md:w-[70%] text-center"
+                    v-else
+                  >
+                    Copied!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="relative mt-4">
+          <div class="bg-white w-full py-2 rounded-md shadow-lg">
+            <div class="grid grid-cols-12 justify-between">
+              <div class="col-span-7 py-2 pl-6">
+                https://www.frontendmentor.io
+              </div>
+              <div class="col-span-4 justify-self-end py-2 px-3 text-[#2acfcf]">
+                https://reLink/k4lKyk
+              </div>
+              <div class="pl-3 py-1">
+                <button
+                  class="text-white bg-[#35323e] rounded-md hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-xs h-10 md:h-full md:w-[70%] text-center"
+                >
+                  Copied!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- card 3 buah -->
+      <div class="container mt-32 mx-auto px-12 md:px-32">
+        <h3 class="text-3xl font-bold text-center tracking-[0.1rem]">
+          Advanced Statistics
+        </h3>
+        <p class="text-gray-500 text-center px-20 mt-3">
+          Track how your links are performing across the web with
+          <br class="hidden md:block" />
+          our advanced statistics dashboard.
+        </p>
+
+        <div class="relative mt-10">
+          <div
+            class="bg-[#2acfcf] w-1/2 px-10 py-1 rounded-xl mx-auto absolute bottom-[45%] end-[25%] hidden md:block"
+          ></div>
+          <div
+            class="bg-[#2acfcf] h-3/4 py-10 px-1 rounded-xl mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 block md:hidden"
+          ></div>
+          <div class="grid grid-cols-1 md:grid-cols-3 justify-items-center">
+            <div class="z-10 mt-16 triCard md:mt-12">
+              <a
+                href="#"
+                class="relative block max-w-sm min-h-60 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              >
+                <h5
+                  class="pt-10 mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                >
+                  Brand Recognition
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">
+                  Boost your brand recognition with each click. Generic links
+                  don’t mean a thing. Branded links help instil confidence in
+                  your content.
+                </p>
+
+                <div
+                  class="absolute bg-[#232127] p-4 rounded-full top-[0%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:left-1/4"
+                >
+                  <img src="/images/icon-brand-recognition.svg" alt="" />
+                </div>
+              </a>
+            </div>
+            <div class="z-10 mt-24 triCard">
+              <a
+                href="#"
+                class="relative block max-w-sm min-h-60 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              >
+                <h5
+                  class="pt-10 mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                >
+                  Detailed Records
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">
+                  Gain insights into who is clicking your links. Knowing when
+                  and where people engage with your content helps inform better
+                  decisions.
+                </p>
+                <div
+                  class="absolute bg-[#232127] p-4 rounded-full top-[0%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:left-1/4"
+                >
+                  <img src="/images/icon-detailed-records.svg" alt="" />
+                </div>
+              </a>
+            </div>
+            <div class="z-10 mt-24 triCard md:mt-32">
+              <a
+                href="#"
+                class="relative block max-w-sm min-h-60 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+              >
+                <h5
+                  class="pt-10 mb-2 text-2xl font-bold tracking-tight text-gray-900"
+                >
+                  Fully Customizable
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">
+                  Improve brand awareness and content discoverability through
+                  customizable links, supercharging audience engagement.
+                </p>
+                <div
+                  class="absolute bg-[#232127] p-3 rounded-full top-[0%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:left-1/4"
+                >
+                  <img src="/images/icon-fully-customizable.svg" alt="" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer 1 -->
+    <div class="relative mt-32 bg-[#35323e] h-72">
+      <img
+        src="/images/bg-boost-desktop.svg"
+        alt=""
+        class="w-full h-72 hidden md:block"
+      />
+
+      <img
+        src="/images/bg-boost-mobile.svg"
+        alt=""
+        class="w-full h-72 block md:hidden"
+      />
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center"
+      >
+        <p class="text-white text-4xl font-bold mb-7">Boost your links today</p>
+        <button
+          class="text-white bg-[#2acfcf] rounded-full hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm px-7 py-3 text-center"
+        >
+          Get Started
+        </button>
+      </div>
+    </div>
+
+    <!-- footer 2 -->
+    <div class="bg-[#232127] w-full pb-16">
+      <div
+        class="grid grid-cols-1 text-center md:text-start md:grid-cols-5 p-10 justify-items-center"
+      >
+        <div class="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="121" height="33">
+            <path
+              fill="#ffffff"
+              d="M16.715 7.932c-.068-.09-.306-.26-.714-.51s-.918-.51-1.53-.782-1.281-.51-2.006-.714a8.005 8.005 0 00-2.176-.306c-1.995 0-2.992.669-2.992 2.006 0 .408.107.748.323 1.02.215.272.532.516.952.731.419.215.946.414 1.58.595l1.406.393.805.219c1.156.317 2.198.663 3.128 1.037.929.374 1.717.839 2.363 1.394a5.647 5.647 0 011.496 2.023c.35.793.527 1.745.527 2.856 0 1.36-.255 2.51-.765 3.451-.51.94-1.185 1.7-2.023 2.278-.84.578-1.802.997-2.89 1.258-1.088.26-2.21.391-3.366.391a19.68 19.68 0 01-5.44-.799c-.884-.26-1.74-.572-2.567-.935A14.358 14.358 0 01.53 22.28l2.448-4.862c.09.113.385.329.884.646.498.317 1.116.635 1.853.952.736.317 1.558.6 2.465.85.906.25 1.824.374 2.754.374 1.972 0 2.958-.6 2.958-1.802 0-.453-.148-.827-.442-1.122-.295-.295-.703-.561-1.224-.799a12.455 12.455 0 00-1.504-.56l-1.702-.495-.976-.288c-1.111-.34-2.074-.708-2.89-1.105-.816-.397-1.49-.856-2.023-1.377a5.003 5.003 0 01-1.19-1.802c-.261-.68-.391-1.473-.391-2.38 0-1.27.238-2.391.714-3.366a7.266 7.266 0 011.938-2.465 8.435 8.435 0 012.839-1.513c1.076-.34 2.215-.51 3.417-.51.838 0 1.666.08 2.482.238.816.159 1.598.363 2.346.612.748.25 1.445.533 2.09.85.647.317 1.242.635 1.786.952l-2.448 4.624zM40.139 25h-5.44V14.97c0-1.156-.227-2.006-.68-2.55-.454-.544-1.077-.816-1.87-.816-.318 0-.663.074-1.037.221a4.173 4.173 0 00-1.088.646 5.827 5.827 0 00-.97 1.003 4.4 4.4 0 00-.68 1.292V25h-5.44V.18h5.44v9.962a6.786 6.786 0 012.602-2.465c1.076-.578 2.26-.867 3.553-.867 1.201 0 2.17.21 2.907.629.736.42 1.303.952 1.7 1.598.396.646.663 1.371.799 2.176.136.805.204 1.592.204 2.363V25zm12.34.34c-1.519 0-2.873-.25-4.063-.748-1.19-.499-2.193-1.173-3.01-2.023a8.54 8.54 0 01-1.852-2.958 9.97 9.97 0 01-.63-3.519c0-1.224.21-2.397.63-3.519a8.54 8.54 0 011.853-2.958c.816-.85 1.819-1.53 3.009-2.04s2.544-.765 4.063-.765c1.519 0 2.867.255 4.046.765 1.179.51 2.176 1.19 2.992 2.04a8.754 8.754 0 011.87 2.958 9.736 9.736 0 01.646 3.519 9.97 9.97 0 01-.63 3.519 8.54 8.54 0 01-1.852 2.958c-.816.85-1.82 1.524-3.01 2.023-1.19.499-2.543.748-4.062.748zM48.5 16.092c0 1.405.374 2.533 1.122 3.383.748.85 1.7 1.275 2.856 1.275a3.59 3.59 0 001.564-.34c.476-.227.89-.544 1.24-.952a4.57 4.57 0 00.834-1.479 5.632 5.632 0 00.306-1.887c0-1.405-.374-2.533-1.122-3.383-.748-.85-1.689-1.275-2.822-1.275a3.702 3.702 0 00-2.84 1.292 4.57 4.57 0 00-.832 1.479 5.632 5.632 0 00-.306 1.887zm27.776-4.284c-1.315.023-2.505.238-3.57.646-1.065.408-1.836 1.02-2.312 1.836V25h-5.44V7.15h4.998v3.604c.612-1.201 1.4-2.142 2.363-2.822.963-.68 1.989-1.031 3.077-1.054h.544c.113 0 .227.011.34.034v4.896zm14.074 12.24a21.71 21.71 0 01-2.567.884c-.963.272-1.932.408-2.907.408-.68 0-1.32-.085-1.92-.255a4.286 4.286 0 01-1.582-.816c-.453-.374-.81-.867-1.07-1.479-.262-.612-.392-1.349-.392-2.21v-9.316h-2.278V7.15h2.278V1.472h5.44V7.15h3.638v4.114h-3.638v7.446c0 .59.147 1.014.442 1.275.295.26.669.391 1.122.391.408 0 .827-.068 1.258-.204.43-.136.805-.283 1.122-.442l1.054 4.318zM92.627.18h5.44v18.462c0 1.36.578 2.04 1.734 2.04.272 0 .572-.04.901-.119.329-.08.63-.198.901-.357l.714 4.08c-.68.317-1.462.567-2.346.748-.884.181-1.711.272-2.482.272-1.564 0-2.765-.408-3.604-1.224-.839-.816-1.258-1.995-1.258-3.536V.18zm11.456 27.506c.454.159.879.272 1.275.34a6.4 6.4 0 001.071.102c.658 0 1.168-.227 1.53-.68.363-.453.692-1.27.986-2.448l-6.8-17.85h5.61l4.148 13.192 3.57-13.192h5.1l-6.8 20.74a7.106 7.106 0 01-2.55 3.587c-1.224.918-2.674 1.377-4.352 1.377a8.17 8.17 0 01-1.377-.119 7.516 7.516 0 01-1.41-.391v-4.658z"
+            />
+          </svg>
+        </div>
+        <div class="text-white my-10 md:my-0">
+          <p class="text-lg font-bold mb-3">Features</p>
+          <p class="text-sm">Link Shortening</p>
+          <p class="text-sm">Branded Links</p>
+          <p class="text-sm">Analytics</p>
+        </div>
+        <div class="text-white mb-10 md:mb-0">
+          <p class="text-lg font-bold mb-3">Resources</p>
+          <p class="text-sm">Blog</p>
+          <p class="text-sm">Developers</p>
+          <p class="text-sm">Support</p>
+        </div>
+        <div class="text-white mb-10 md:mb-0">
+          <p class="text-lg font-bold mb-3">Company</p>
+          <p class="text-sm">About</p>
+          <p class="text-sm">Our Team</p>
+          <p class="text-sm">Careers</p>
+          <p class="text-sm">Contact</p>
+        </div>
+        <div class="grid grid-cols-4">
+          <span class="px-2"
+            ><img src="/images/icon-facebook.svg" alt=""
+          /></span>
+          <span class="px-2"
+            ><img src="/images/icon-twitter.svg" alt=""
+          /></span>
+          <span class="px-2"
+            ><img src="/images/icon-pinterest.svg" alt=""
+          /></span>
+          <span class="px-2"
+            ><img src="/images/icon-instagram.svg" alt=""
+          /></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- code by -->
+    <div class="bg-[#232127] attribution text-white">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.frontendmentor.io/profile/arysyahbana"
+        >Ary Syahbana</a
+      >.
+    </div>
+
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      createApp({
+        data() {
+          return {
+            items: [],
+            newItem: {
+              originalUrl: "",
+              shortUrl: "",
+              copied: false,
+            },
+            disableButton: false,
+            linkError: false,
+          };
+        },
+        methods: {
+          async shortenURL() {
+            try {
+              if (this.newItem.originalUrl == "") {
+                alert("Url can't be blank");
+                return;
+              }
+              this.disableButton = true;
+              const response = await fetch(
+                `https://tinyurl.com/api-create.php?url=${encodeURIComponent(
+                  this.newItem.originalUrl
+                )}`
+              );
+              const shortUrl = await response.text();
+              console.log(shortUrl);
+              this.newItem.shortUrl = shortUrl; // Assign shortUrl to newItem
+              this.items.push({ ...this.newItem }); // Push newItem to items array
+              console.log(this.items);
+              this.newItem.originalUrl = ""; // Reset originalUrl
+              this.disableButton = false;
+            } catch (error) {
+              alert("Error while shortening URL", error);
+            }
+          },
+
+          copyLink(index) {
+            navigator.clipboard.writeText(this.items[index].shortUrl);
+            this.items[index].copied = !this.items[index].copied;
+            // console.log(this.items);
+            // console.log(this.items[index].copied);
+          },
+        },
+
+        watch: {
+          "newItem.originalUrl"(value) {
+            this.linkError = value.length === 0;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
